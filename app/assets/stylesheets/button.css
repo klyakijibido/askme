@@ -1,0 +1,13 @@
+.button {
+  border: 0;
+  border-radius: 3px; /*скруглим углы*/
+  color: #fff; /*цвет текста - белый*/
+  display: inline-block; /*отображаются как и ссылки - одинаково*/
+  font-size: 14px;
+  padding: 8px 13px 7px;
+  text-decoration: none; /*если эта кнопка будет применяться к ссылке, сделаем*/
+}
+
+.button-main {
+  background-color: #9d0208;
+}

@@ -1,0 +1,20 @@
+.form-text-area,
+.form-text-field {
+  border: 1px solid #d0d0d0;
+  padding: 7.5px 10px;
+}
+
+/*теперь под фокусом.. псевдокласс*/
+.form-text-area:focus,
+.form-text-field:focus {
+  background-color: #fee9c3;
+  /*  когда мы поле кликаем, вокруг него появляется обводка, она не нужна*/
+  outline-width: 0;
+}
+
+.form-text-area {
+  /*чтобы width была с учетом бордера и паддинга*/
+  box-sizing: border-box;
+  /* поле ввода на всю ширину родительского контейнера */
+  width: 100%;
+}
