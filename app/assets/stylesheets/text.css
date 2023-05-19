@@ -22,3 +22,7 @@ a, button {
 .text-sm {
   font-size: 80%;
 }
+
+.text-hidden {
+  opacity: 50%;
+}
