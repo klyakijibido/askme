@@ -2,7 +2,7 @@
   <h2 class="title-lg mb">Вопросы</h2>
 
   <% @questions.each do |question| %>
-    <p class="mb-sm"><%= link_to "Вопрос #{question.id}", question_path(question) %></p>
+    <p class="mb-sm<%=" text-hidden" if question.hidden? %> "><%= link_to "Вопрос #{question.id}", question_path(question) %></p>
   <% end %>
 
   <p class="mt"><%= link_to "Создать новый вопрос", new_question_path, class: 'button button-main' %></p>

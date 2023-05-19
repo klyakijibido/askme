@@ -34,10 +34,8 @@ class QuestionsController < ApplicationController
   end
 
   def hide
-    @question.hidden = !@question.hidden
-    # debugger
-    @question.update(hidden: @question.hidden)
-    # @question.update(question_params)
+    @question.update(hidden: true)
+    redirect_to questions_path, notice: 'Вопрос скрыт'
   end
 
   private
