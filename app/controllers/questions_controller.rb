@@ -40,7 +40,6 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    debugger
     params.require(:question).permit(:body, :user_id, :hidden)
   end
 
