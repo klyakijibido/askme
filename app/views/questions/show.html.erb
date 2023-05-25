@@ -1,16 +1,7 @@
 <div class="container">
   <h2 class="title-lg mb">Вопрос <%= @question.id %> </h2>
 
-  <p class="mb-sm"><%= @question.body %></p>
-  <p>user_id: <b><%= @question.user_id %></b></p>
-
-  <div class="mt">
-    <%= link_to fa_icon('pencil'), edit_question_path(@question), title: 'Изменить вопрос' %>
-    <%= button_to(fa_icon('eye'), hide_question_path(@question), method: :put, title: 'Скрыть вопрос',
-                  form: {data: {turbo_confirm: 'Точно скрыть вопрос?'}}) unless @question.hidden? %>
-    <%= button_to fa_icon('trash-o'), question_path(@question), method: :delete, title: 'Удалить вопрос',
-                  form: {data: {turbo_confirm: 'Точно удалить вопрос?'}} %>
-  </div>
+  <%= render 'question', question: @question %>
 
   <p class="mt"><%= link_to "Все вопросы", questions_path, class: 'button button-main' %></p>
 </div>

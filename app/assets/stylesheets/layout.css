@@ -1,16 +1,16 @@
-body{
+body {
   background: #03071E;
   display: flex;
   justify-content: center;
 }
 
-.wrapper{
+.wrapper {
   max-width: 800px;
   margin: 40px;
   width: 100%; /*это для маленьких экранов*/
 }
 
-.container{
+.container {
   background: #fff;
   padding: 20px;
 }
