@@ -4,7 +4,7 @@
   <p class="mt">Введите свои email и пароль для входа на сайт</p>
 
   <div class="mt">
-    <%= form_with scope: :session, url: session_path do |form| %>
+    <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
       <p><%= form.label :email %></p>
       <p><%= form.text_field :email, class: 'form-text-filed' %></p>
 
