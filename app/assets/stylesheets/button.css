@@ -11,3 +11,8 @@
 .button-main {
   background-color: #9d0208;
 }
+
+.button-yellow {
+  background-color: #ffba08;
+  color: #000;
+}
