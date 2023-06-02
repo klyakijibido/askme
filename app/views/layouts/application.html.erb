@@ -13,7 +13,7 @@
   <body>
     <div class="wrapper">
       <div class="navbar">
-        <p class="title-sm text-bold"><%= link_to 'Ask me!', root_path %></p>
+        <p class="title-sm text-bold"><%= link_to 'Ask me', root_path %></p>
         <div>
           <% if current_user.present? %>
             <%= content_tag 'span', "@#{current_user.nickname}", class: 'mr-sm' %>
