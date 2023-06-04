@@ -2,7 +2,7 @@
   <h2 class="title">Присоединяйся и спрашивай!</h2>
 
   <div class="mt">
-    <%= form_with model: @user do |form| %>
+    <%= form_with model: @user, data: {turbo:false}  do |form| %>
       <p><%= form.label :name, 'Ваше имя' %></p>
       <p><%= form.text_field :name, class: 'form-text-field' %></p>
 
