@@ -1,15 +1,19 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_validation :downcase_nickname
+  before_validation :downcase_nickname, :downcase_email
 
   validates :nickname, format: { with: /\A[a-z0-9_]{3,40}\z/ }, presence: true, uniqueness: true
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, format: { with: /\A[a-z0-9._%+-]+@[a-z0-9-]+.+.[a-z]{2,4}\z/ },  presence: true, uniqueness: true
 
   private
 
   def downcase_nickname
     nickname.downcase!
+  end
+
+  def downcase_email
+    email.downcase!
   end
 end
