@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   before_save :downcase_nickname
 
+  validates :nickname, format: { with: /\A[a-z0-9_]{3,40}\z/ }, presence: true, uniqueness: true
+
   validates :email, presence: true, uniqueness: true
 
   def downcase_nickname
