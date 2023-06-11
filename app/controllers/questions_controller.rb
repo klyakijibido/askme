@@ -14,10 +14,20 @@ class QuestionsController < ApplicationController
 
   end
 
-  def update
-    @question.update(question_params)
+  def edit
+    @question = Question.find(params[:id])
+  end
 
-    redirect_to question_path(@question), notice: 'Вопрос обновлен!'
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to question_path(@question), notice: 'Вопрос обновлен!'
+    else
+      flash.now[:alert] = 'При попытке изменения вопроса возникли ошибки'
+
+      render :edit
+    end
   end
 
   def destroy
@@ -36,9 +46,6 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-  end
-
-  def edit
   end
 
   def hide
