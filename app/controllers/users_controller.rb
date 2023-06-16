@@ -44,6 +44,12 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'Пользователь удалён'
   end
 
+  def show
+    @user = User.find(params[:id])
+    @questions = @user.questions
+    @question = Question.new
+  end
+
   private
 
   def user_params
