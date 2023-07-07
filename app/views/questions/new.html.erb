@@ -1,5 +1,6 @@
 <div class="container">
-  <h2 class="title-lg mb">Новый вопрос</h2>
+  <h2 class="title-lg mb-sm">Новый вопрос</h2>
+  <p class="mb">для <%= link_to "#{nickname_with_dog(@user)}", user_path(@user) %></p>
 
   <% if @question.errors.any? %>
     <div class="mt">
