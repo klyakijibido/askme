@@ -19,10 +19,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    redirect_with_alert unless current_user == @user
   end
 
   def update
     @user = User.find(params[:id])
+
+    redirect_with_alert unless current_user == @user
 
     if @user.update(user_params) # update тоже аозвращает true/false
       session[:user_id] = @user.id
