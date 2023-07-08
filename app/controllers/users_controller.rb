@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :authorize_user, only: %i[edit update destroy]
+
   def new
     @user = User.new
   end
@@ -18,16 +21,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-
-    redirect_with_alert unless current_user == @user
   end
 
   def update
-    @user = User.find(params[:id])
-
-    redirect_with_alert unless current_user == @user
-
     if @user.update(user_params) # update тоже аозвращает true/false
       session[:user_id] = @user.id
 
@@ -40,7 +36,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
 
     session.delete(:user_id)
@@ -49,12 +44,19 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @questions = @user.questions
     @question = Question.new(user: @user)
   end
 
   private
+
+  def authorize_user
+    redirect_with_alert unless current_user == @user
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :nickname, :email, :header_color, :password, :password_confirmation)
