@@ -2,6 +2,12 @@
   <%= question.body %>
 </div>
 
+<% if question.answer.present? %>
+  <div class="mb-sm text-dark-red">
+    <%= question.answer %>
+  </div>
+<% end %>
+
 <div class="text-sm question-footer">
   <div class="text-gray">
     <%= l(question.created_at, format: :short) %>
