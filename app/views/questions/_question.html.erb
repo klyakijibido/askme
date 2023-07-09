@@ -1,4 +1,4 @@
-<div class="mb-sm<%=" text-hidden" if question.hidden? %> ">
+<div class="mb-sm<%= " text-hidden" if question.hidden? %> ">
   <%= question.body %>
 </div>
 
@@ -15,7 +15,9 @@
 
   <% if current_user == question.user %>
     <div>
-      <%= link_to fa_icon('pencil'), edit_question_path(question), title: 'Изменить вопрос' %>
+      <% edit_icon = (question.answer.present?) ? 'pencil' : 'reply' %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question), title: 'Изменить вопрос',
+                  class: 'mr-sm' %>
       <%= button_to(fa_icon('eye'), hide_question_path(question), method: :put, title: 'Скрыть вопрос',
                     form: {data: {turbo_confirm: 'Точно скрыть вопрос?'}}) unless question.hidden? %>
       <%= button_to fa_icon('trash-o'), question_path(question), method: :delete, title: 'Удалить вопрос',
