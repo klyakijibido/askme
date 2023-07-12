@@ -1,3 +1,15 @@
+<div class="container">
+  <h2 class="title-lg mb">
+    Недавно добавились
+  </h2>
+
+  <div class="users-box">
+    <% @users.each do |user| %>
+      <%= render partial: 'users/user_avatar', locals: {user: user} %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container mt-sm">
   <h2 class="title-lg">
     <%= @questions.count %>
