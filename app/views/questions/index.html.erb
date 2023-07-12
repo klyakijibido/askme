@@ -12,6 +12,7 @@
 
 <div class="container mt-sm">
   <h2 class="title-lg">
+    <%= inclination(@questions.count, 'Последний', 'Последние', 'Последние') %>
     <%= @questions.count %>
     <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
   </h2>
@@ -19,6 +20,10 @@
 
 <% @questions.each do |question| %>
   <div class="mt-sm container">
+    <p class="mb text-sm text-gray">
+      Вопрос <%= link_to "##{question.id}", question_path(question) %>
+      для юзера <%= link_to "#{nickname_with_dog(question.user)}", user_path(question.user) %>
+    </p>
     <%= render question %>
   </div>
 <% end %>

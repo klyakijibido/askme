@@ -1,7 +1,8 @@
 <div class="container">
   <h2 class="title-lg mb">Вопрос <%= @question.id %> </h2>
+  <p class="mt-sm"><%= link_to "Все вопросы #{nickname_with_dog(@question.user)}", user_path(@question.user) %></p>
+</div>
 
+<div class="container mt-sm">
   <%= render 'question', question: @question %>
-
-  <p class="mt"><%= link_to "Все вопросы", questions_path, class: 'button button-main' %></p>
 </div>
