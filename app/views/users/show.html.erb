@@ -20,14 +20,18 @@
 </div>
 
 <div class="container mt-sm">
-  <h2 class="title-lg">
-    <%= @questions.count %>
-    <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
-  </h2>
-</div>
+  <% if @questions.any? %>
+    <h2 class="title-lg">
+      <%= @questions.count %>
+      <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
+    </h2>
 
-<% @questions.each do |question| %>
-  <div class="mt-sm container">
-    <%= render question %>
-  </div>
-<% end %>
+    <% @questions.each do |question| %>
+      <div class="mt-sm container">
+        <%= render question %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= render partial: 'no_questions', locals: {user: @user} %>
+  <% end %>
+</div>
