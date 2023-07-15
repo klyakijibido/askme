@@ -10,6 +10,9 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :delete_all
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'robohash')
+
   private
 
   def downcase_nickname
