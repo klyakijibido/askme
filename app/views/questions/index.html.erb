@@ -19,7 +19,8 @@
 </div>
 
 <% @questions.each do |question| %>
-  <div class="mt-sm container">
+  <% next if question.hidden? && question.user != current_user %>
+  <div class="mt-sm container<%= " text-hidden" if question.hidden? %>">
     <p class="mb text-sm text-gray">
       Вопрос <%= link_to "##{question.id}", question_path(question) %>
       для юзера <%= link_to "#{nickname_with_dog(question.user)}", user_path(question.user) %>
