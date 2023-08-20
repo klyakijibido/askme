@@ -1,7 +1,10 @@
 # ASKME
 
-Это учебный проект по программе в школе "Хороший программист" - клон ask.fm
+## Description
+This is clone of the [askme.fm](https://askme.fm)
 
-Ruby version "3.1.2"
+## Versions
+* Ruby version 3.1.2
+* Rails version 7.0.4
 
-Rails 7.0.4.3
+
